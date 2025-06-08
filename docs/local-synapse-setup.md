@@ -2,6 +2,9 @@
 
 You'll want at least two locally running Synapse instances to hack on Matrixbird locally. Here is how I have two local homeservers `one.local` and `two.local` set up. 
 
+
+#### Local domains
+
 Add these to your `/etc/hosts` file:
 
 ```
@@ -10,6 +13,8 @@ Add these to your `/etc/hosts` file:
 127.0.0.1   one.local
 127.0.0.1   two.local
 ```
+
+#### Synapse Config
 
 Synapse config should look like this:
 
@@ -52,12 +57,16 @@ ip_range_whitelist:
   - '::1/128'
 ```
 
+#### Cert
+
 Create local certs using `mkcert` like so:
 
 ```shell
 > mkcert one.local
 > mkcert two.local
 ```
+
+#### Reverse Proxy
 
 Put synapse behind nginx reverse proxy:
 
@@ -97,4 +106,4 @@ server {
 
 These instances should now be able to federate and talk to each other. Test that you can reach `https://one.local` and `https://two.local` in your browser, they should show the default matrix static page. You may need to restart your browser for the certs to work properly.
 
-In Element, of your client of choice, create accounts on both homeservers to test if everything is set up correctly. 
+In Element, or your client of choice, create accounts on both homeservers to test if everything is set up correctly. 
