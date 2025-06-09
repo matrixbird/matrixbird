@@ -11,7 +11,7 @@ Add these to your `/etc/hosts` file:
 127.0.0.1   localhost
 ...
 127.0.0.1   one.local
-127.0.0.1   two.local
+127.0.0.1   two.local 
 ```
 
 #### Synapse Config
@@ -59,11 +59,11 @@ ip_range_whitelist:
 
 #### Cert
 
-Create local certs using `mkcert` like so:
+Create local certs using [mkcert](https://github.com/FiloSottile/mkcert) like so:
 
 ```shell
-> mkcert one.local
-> mkcert two.local
+> mkcert one.local "*one.local"
+> mkcert two.local "*two.local"
 ```
 
 #### Reverse Proxy
