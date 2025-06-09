@@ -59,12 +59,15 @@ ip_range_whitelist:
 
 #### Cert
 
-Create local certs using [mkcert](https://github.com/FiloSottile/mkcert) like so:
+Install [mkcert](https://github.com/FiloSottile/mkcert) and run `mkcert -install` to ensure that your browser trusts locally created certificates. 
+
+Create certificates:
 
 ```shell
 > mkcert one.local "*one.local"
 > mkcert two.local "*two.local"
 ```
+You may need to restart your browser.
 
 #### Reverse Proxy
 
@@ -104,6 +107,6 @@ server {
 }
 ```
 
-These instances should now be able to federate and talk to each other. Test that you can reach `https://one.local` and `https://two.local` in your browser, they should show the default matrix static page. You may need to restart your browser for the certs to work properly.
+These instances should now be able to federate and talk to each other. Test that you can reach `https://one.local` and `https://two.local` in your browser, they should show the default matrix static page. 
 
 In Element, or your client of choice, create accounts on both homeservers to test if everything is set up correctly. 
