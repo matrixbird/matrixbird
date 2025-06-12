@@ -9,19 +9,24 @@ response like the following:
 
 ```json
 {
-  "server": {
+  "matrixbird.server": {
     "url": "https://matrixbird.matrixbird.com"
     "related": [
       "matrixbird.net",
       "matrixbird.org"
     ],
+  },
+  "m.homeserver": {
+    "base_url": "https://matrix.matrixbird.com"
   }
 }
 ```
 
 In the example above, the `server.url` field contains the URI of the Matrixbird
 server, and the `related` field contains a list of related matrixbird servers
-that the client can also connect to. 
+that the client can also connect to. The `m.homeserver` field is optional since
+this is already served by `/.well-known/matrixbird/client`, but it's useful to
+save an extra request.
 
 Matrixbird servers communicating with other Matrixbird servers over federation
 should use the `/.well-known/matrixbird/server` endpoint to discover the URI
@@ -30,7 +35,7 @@ server's URI. The response should look like this:
 
 ```json
 {
-  "server": {
+  "matrixbird.server": {
     "url": "https://matrixbird.matrixbird.com"
   }
 }
