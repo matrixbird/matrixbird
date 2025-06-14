@@ -17,7 +17,8 @@ response like the following:
     ],
   },
   "m.homeserver": {
-    "base_url": "https://matrix.matrixbird.com"
+    "base_url": "https://matrix.matrixbird.com",
+    "server_name": "matrixbird.com"
   }
 }
 ```
